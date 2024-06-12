@@ -3,10 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { CoursesRoutingModule } from './courses-routing.module';
 import { CoursesComponent } from './courses/courses.component';
-import { MatTableModule } from '@angular/material/table';
-import { MatCardModule } from '@angular/material/card';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { AppMaterialModule } from '../shared/app-material/app-material.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -17,10 +15,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
   imports: [
     CommonModule,
     CoursesRoutingModule,
-    MatTableModule,
-    MatCardModule,
-    MatToolbarModule,
-    MatProgressSpinnerModule
+    AppMaterialModule,
+    SharedModule
   ]
 })
 export class CoursesModule { }
