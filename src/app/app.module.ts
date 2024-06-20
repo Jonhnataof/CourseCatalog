@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { AppMaterialModule } from './shared/app-material/app-material.module';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     MatToolbarModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
