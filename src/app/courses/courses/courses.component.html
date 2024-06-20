@@ -7,13 +7,15 @@
       <!-- Curso Column -->
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Cursos</th>
-        <td mat-cell *matCellDef="let course"> {{ course.name }} </td>
+        <td mat-cell *matCellDef="let course"> {{ course.name }}</td>
       </ng-container>
 
       <!-- Category Column -->
       <ng-container matColumnDef="category">
         <th mat-header-cell *matHeaderCellDef> Categoria </th>
-        <td mat-cell *matCellDef="let course"> {{ course.category }} </td>
+        <td mat-cell *matCellDef="let course"> {{ course.category }}
+          <mat-icon aria-hidden="false" aria-label="Categoria do Curso">{{course.category | category}}</mat-icon>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
