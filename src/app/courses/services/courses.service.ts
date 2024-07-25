@@ -3,7 +3,6 @@ import { Course } from '../model/course';
 
 import { HttpClient } from '@angular/common/http';
 import { delay, first, tap } from 'rxjs/operators';
-import { CoursesComponent } from '../courses/courses.component';
 
 @Injectable({
   providedIn: 'root'
@@ -18,11 +17,11 @@ export class CoursesService {
     return this.httpClient.get<Course[]>(this.API)
     .pipe(
       first(),
-      delay(2000)
+      delay(1000)
     );
   }
 
-  save (course: CoursesComponent){
-    return this.httpClient.post<Course>(this.API, course)
+  save (course: Partial<Course>){
+    return this.httpClient.post<Course>(this.API, course).pipe(first());
   };
 }
