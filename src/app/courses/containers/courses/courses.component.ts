@@ -14,14 +14,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CoursesComponent implements OnInit {
   courses$: Observable<Course[]>;
-  
 
-  constructor( 
+
+  constructor(
     private coursesService: CoursesService,
     public dialog: MatDialog,
     private router: Router,
     private route: ActivatedRoute
-  ) { 
+  ) {
 
     this.courses$ = this.coursesService.list().
     pipe(
@@ -40,10 +40,10 @@ export class CoursesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
+
   }
 
-  onAdd(){
+  public addCourses(){
     this.router.navigate(['new'], {relativeTo: this.route});
   }
 
