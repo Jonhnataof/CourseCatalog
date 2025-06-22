@@ -13,7 +13,7 @@ export class CoursesService {
 
   constructor(private httpClient: HttpClient) { }
 
-  list() {
+  public list() {
     return this.httpClient.get<Course[]>(this.API)
     .pipe(
       first(),
@@ -22,6 +22,21 @@ export class CoursesService {
   }
 
   public save (course: Partial<Course>){
-    return this.httpClient.post<Course>(this.API, course).pipe(first());
+    if (course._id){
+      return this.upDate(course);
+    }
+    return this.create(course);
   };
+
+  public loadById(id: string){
+    return this.httpClient.get<Course>(`${this.API}/${id}`);
+  }
+
+  private create(course: Partial<Course>){
+    return this.httpClient.post<Course>(this.API, course).pipe(first());
+  }
+
+  private upDate(course: Partial<Course>){
+    return this.httpClient.put<Course>(`${this.API}/${course._id}`, course).pipe(first());
+  }
 }
