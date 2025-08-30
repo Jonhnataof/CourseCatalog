@@ -23,7 +23,7 @@ export class CoursesService {
 
   public save (course: Partial<Course>){
     if (course._id){
-      return this.upDate(course);
+      return this.update(course);
     }
     return this.create(course);
   };
@@ -36,7 +36,11 @@ export class CoursesService {
     return this.httpClient.post<Course>(this.API, course).pipe(first());
   }
 
-  private upDate(course: Partial<Course>){
+  private update(course: Partial<Course>){
     return this.httpClient.put<Course>(`${this.API}/${course._id}`, course).pipe(first());
+  }
+
+  public delete(course: Partial<Course>){
+    return this.httpClient.delete<Course>(`${this.API}/${course._id}`).pipe(first())
   }
 }
